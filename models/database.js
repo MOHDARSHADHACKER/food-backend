@@ -8,7 +8,7 @@ const  db = {};
 db.mongoose = mongoose;
 db.url = dbConfig.url;
 db.test = require("./test")(mongoose);
-db.user = require("./user")(mongoose);
+db.user = require("./User")(mongoose);
 db.food_category = require("./category")(mongoose);
 
 module.exports = db;
