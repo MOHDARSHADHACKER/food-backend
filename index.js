@@ -5,26 +5,11 @@ const cors = require("cors");
 const PORT = process.env.PORT || 8080;
 
 
-const allowedOrigins = [
-  "http://localhost:3000",
-  "https://food-app-git-main-mohdarshadhackers-projects.vercel.app"
-];
+let corsOptions = {
+   origin : 'https://food-app-git-main-mohdarshadhackers-projects.vercel.app'
+}
 
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      // allow requests with no origin (Postman, curl, mobile apps)
-      if (!origin) return callback(null, true);
-
-      if (allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true
-  })
-);
+app.use(cors(corsOptions));
 
 app.use(express.json());
 
